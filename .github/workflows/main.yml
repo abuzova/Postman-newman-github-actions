@@ -16,6 +16,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "18.x"
+          
+     # Tern on api
+     - name: Server startup tern on api
+       run: |
+            cp mockApi/db_back_up.yaml mockApi/db_stage.yaml && npx yaml-server --hotReload=off --autoStart=off --port 3000 --database ./mockApi/db_stage.yaml
 
 
       # Install the newman command line utility and also install the html extra reporter
