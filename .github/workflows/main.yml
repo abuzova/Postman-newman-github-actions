@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "18.x"
-          
  
 
       # Install the newman command line utility and also install the html extra reporter
