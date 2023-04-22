@@ -15,13 +15,8 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: "18.x" 
- 
-          
-      # Tern on api
-      - name: Server startup tern on api
-        run: |
-          npm run tern-on-api
+          node-version: "18.x"          
+      
 
       # Install the newman command line utility and also install the html extra reporter
       - name: Install newman
@@ -33,6 +28,12 @@ jobs:
       # Make directory to upload the test results
       - name: Make Directory for results
         run: mkdir -p testResults
+        
+        
+      # Tern on api
+      - name: Server startup tern on api
+        run: |
+          npm run tern-on-api
 
 
       # Run the POSTMAN collection
