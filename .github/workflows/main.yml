@@ -4,6 +4,25 @@ on:
     branches:
       - main
 jobs:
+  run-server:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+
+      # INstall Node on the runner
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "18.x"          
+        
+        
+      # Tern on api
+      - name: Server startup tern on api
+        run: |
+          npm run tern-on-api
+  
   test-api:
     runs-on: ubuntu-latest
     steps:
@@ -28,12 +47,6 @@ jobs:
       # Make directory to upload the test results
       - name: Make Directory for results
         run: mkdir -p testResults
-        
-        
-      # Tern on api
-      - name: Server startup tern on api
-        run: |
-          npm run tern-on-api
 
 
       # Run the POSTMAN collection
