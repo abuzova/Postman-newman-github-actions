@@ -25,6 +25,7 @@ jobs:
   
   test-api:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
     needs: [run-server]
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
