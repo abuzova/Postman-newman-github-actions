@@ -6,6 +6,13 @@ on:
 jobs:
   run-server:
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo
+        ports:
+        - 3000:3000
+          
+          
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -15,28 +22,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: "18.x"          
-        
-        
-      # Tern on api
-      - name: Server startup tern on api
-        run: |
-          npm run tern-on-api
-  
-  test-api:
-    runs-on: ubuntu-latest
-    if: ${{ always() }}
-    needs: [ run-server ]
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-
-      # INstall Node on the runner
-      - name: Install Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "18.x"          
+          node-version: "18.x"
       
 
       # Install the newman command line utility and also install the html extra reporter
