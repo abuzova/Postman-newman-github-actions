@@ -6,11 +6,11 @@ on:
 jobs:
   run-server:
     runs-on: ubuntu-latest
-    services:
-      mongodb:
-        image: mongo
-        ports:
-        - 3000:3000
+    #services:
+    #  mongodb:
+    #    image: mongo
+    #    ports:
+    #    - 3000:3000
           
           
     steps:
@@ -40,7 +40,7 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         run: |
-          newman run store.postman_collection.json
+          newman run petstore.collection.json
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
