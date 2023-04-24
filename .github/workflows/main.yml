@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   run-server:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
           
           
     steps:
