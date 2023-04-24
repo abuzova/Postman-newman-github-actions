@@ -5,12 +5,7 @@ on:
       - main
 jobs:
   run-server:
-    runs-on: ubuntu-latest
-    #services:
-    #  mongodb:
-    #    image: mongo
-    #    ports:
-    #    - 3000:3000
+    runs-on: self-hosted
           
           
     steps:
