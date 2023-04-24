@@ -4,8 +4,10 @@ on:
     branches:
       - main
 jobs:
-  test-api:
-    runs-on: ubuntu-latest
+  run-server:
+    runs-on: self-hosted
+          
+          
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -15,28 +17,30 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: "16.x"
-      - run: npm i npm@latest
-      - run: npm i
-
+          node-version: "18.x"
+      
 
       # Install the newman command line utility and also install the html extra reporter
       - name: Install newman
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
+
+
       # Make directory to upload the test results
       - name: Make Directory for results
-        run: mkdir -p docs
+        run: mkdir -p testResults
 
 
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         run: |
-          newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export docs/index.html --reporter-htmlextra-darkTheme || true
-      # Upload the contents of docs directory to workspace
+          newman run petstore.collection.json
+
+      # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
         uses: actions/upload-artifact@v2
         with:
           name: RunReports
-          path: docs
+          path: testResults
+
