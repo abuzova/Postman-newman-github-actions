@@ -60,10 +60,17 @@ jobs:
           
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
-        uses: actions/upload-artifact@v3
-        with:
-          name: RunReports
-          path: docs
+        #uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v1
+         with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        #with:
+        #  name: RunReports
+        #  path: docs
           
   # Single deploy job since we're just deploying
   deploy:
