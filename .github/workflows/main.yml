@@ -55,31 +55,15 @@ jobs:
       - name: Run POSTMAN collection
         run: |
           newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export index.html --reporter-htmlextra-darkTheme  > runreport1.html || true
-      #     newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export docs/htmlreport.html --reporter-htmlextra-darkTheme  > docs/runreport1.html || true
- 
-          
+               
           
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
-        #uses: actions/upload-artifact@v3
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          #path: 'docs'
           path: '.'
           
-#deploy:          
-    #runs-on: ubuntu-latest        
-          
-   # steps:  
-    #  - name: Deploy to GitHub Pages
-    #    id: deployment
-    #    uses: actions/deploy-pages@v2
-        #with:
-        #  name: RunReports
-        #  path: docs
-        
-         # Deployment job
   deploy:
     environment:
       name: github-pages
