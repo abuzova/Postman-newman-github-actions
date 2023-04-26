@@ -54,7 +54,8 @@ jobs:
       # Run the POSTMAN collection
       - name: Run POSTMAN collection
         run: |
-          newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export docs/htmlreport.html --reporter-htmlextra-darkTheme  > docs/runreport1.html || true
+          newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export index.html --reporter-htmlextra-darkTheme  > runreport1.html || true
+      #     newman run petstore.collection.json -r htmlextra --reporter-htmlextra-export docs/htmlreport.html --reporter-htmlextra-darkTheme  > docs/runreport1.html || true
  
           
           
@@ -64,7 +65,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: 'docs'
+          #path: 'docs'
+          path: '.'
           
 #deploy:          
     #runs-on: ubuntu-latest        
