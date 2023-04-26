@@ -4,18 +4,18 @@ on:
     branches:
       - main
 jobs:
-  run-server:
+  test-build:
     runs-on: ubuntu-latest
           
           
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
 
       # INstall Node on the runner
       - name: Install Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: "18.x"
       - run: npm i npm@latest
@@ -42,7 +42,7 @@ jobs:
 
       # Upload the contents of Test Results directory to workspace
       - name: Output the run Details
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: RunReports
           path: docs
