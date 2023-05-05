@@ -8,7 +8,7 @@
  - Run report to run generate the static report web-application folder and serve the report locally without prior installation.
 
 ## REST API Overview
-    Routes /products, /orders and /users. Below is a table of supported operations with products as example resource. The same operations are also supports for orders/ and users/.
+Routes /products, /orders and /users. Below is a table of supported operations with products as example resource. The same operations are also supports for orders/ and users/.
 
  | VERB |	Route         | Input |	Output |
  | -----|------------------|--------|----------|
