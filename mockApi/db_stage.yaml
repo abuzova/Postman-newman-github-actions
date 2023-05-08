@@ -13,10 +13,25 @@ products:
     description: Most lettuce varieties are eaten fresh and are commonly served as
       the base of green salads
   - id: 3
-    name: apple
-    price: 30
-    sku: 999921312423312
-    description: awesome
+    name: banana
+    price: 155
+    sku: 123321126
+    description: changed description
+  - name: potato
+    price: 20
+    sku: 123321126
+    description: wouh
+    id: 4
+  - name: potato
+    price: 20
+    sku: 123321126
+    description: wouh
+    id: 5
+  - name: potato
+    price: 20
+    sku: 123321126
+    description: wouh
+    id: 6
 orders:
   - id: 1
     name: order1
@@ -25,8 +40,11 @@ orders:
     name: order2
     sku: 999921312423
   - id: 3
-    name: order2
-    sku: 999921312423312
+    name: order5
+    sku: 123425445656765
+  - name: order5
+    sku: 123425445656765
+    id: 4
 users:
   - id: 1
     firstName: Alice
@@ -65,14 +83,14 @@ users:
     status: active
     level: consumer
   - id: 5
-    firstName: Dax
-    lastName: Smith
-    email: dax.smith@gmail.com
-    dateOfBirth: 1997-10-31
+    firstName: Ilon
+    lastName: Mask
+    email: ilon.mask@gmail.com
+    dateOfBirth: 2001-10-99
     emailVerified: true
     signUpDate: 2019-08-24
     status: active
-    level: consumer
+    level: lord
   - id: 6
     firstName: naruto
     lastName: Smith
@@ -109,3 +127,12 @@ users:
     signUpDate: 2019-08-24
     status: active
     level: consumer
+  - firstName: Dream
+    lastName: Real
+    email: dream.real@gmail.com
+    dateOfBirth: 2001-10-99
+    emailVerified: true
+    signUpDate: 2019-08-24
+    status: active
+    level: lord
+    id: 10

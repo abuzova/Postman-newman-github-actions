@@ -281,7 +281,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 8,\r\n    \"name\": \"banana\",\r\n    \"price\": 155,\r\n    \"sku\": 123321126,\r\n    \"description\": \"changed description\"\r\n}",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"banana\",\r\n    \"price\": 155,\r\n    \"sku\": 123321126,\r\n    \"description\": \"changed description\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -847,7 +847,7 @@
 									"\r",
 									"/*\r",
 									"{\r",
-									"    \"id\": 6,\r",
+									"    \"id\": 3,\r",
 									"    \"name\": \"order5\",\r",
 									"    \"sku\": 123425445656765\r",
 									"}\r",
@@ -856,7 +856,7 @@
 									"const jsonData = pm.response.json();\r",
 									"\r",
 									"pm.test(\"Product is updated with correct values\", () => {\r",
-									"    pm.expect(jsonData.id).to.eql(6);\r",
+									"    pm.expect(jsonData.id).to.eql(3);\r",
 									"    pm.expect(jsonData.name).to.eql(\"order5\");\r",
 									"    pm.expect(jsonData.sku).to.eql(123425445656765);\r",
 									"});"
@@ -870,7 +870,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 6,\r\n    \"name\": \"order5\",\r\n    \"sku\": 123425445656765\r\n}",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"order5\",\r\n    \"sku\": 123425445656765\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1358,13 +1358,16 @@
 									"        pm.expect(element.id).to.be.a(\"number\");\r",
 									"        pm.expect(element.firstName).to.be.a(\"string\");\r",
 									"        pm.expect(element.lastName).to.be.an(\"string\");\r",
-									"       // pm.expect(element.email).to.be.an(\"string\");  //!!!\r",
-									"       // pm.expect(element.dateOfBirth).to.be.an(\"string\"); //!!!\r",
-									"       // pm.expect(element.emailVerified).to.be.an(\"string\"); //!!!\r",
-									"       // pm.expect(element.signUpDate).to.be.an(\"string\"); //!!!\r",
+									"        pm.expect(element.email).to.be.an(\"string\");\r",
+									"        jsonData.forEach(obj => {\r",
+									"            pm.expect(obj.signUpDate).to.match(/\\d{4}-\\d{2}-\\d{2}/);\r",
+									"        })      \r",
+									"        pm.expect(element.emailVerified).to.be.an(\"boolean\");\r",
+									"        jsonData.forEach(obj => {\r",
+									"            pm.expect(obj.dateOfBirth).to.match(/\\d{4}-\\d{2}-\\d{2}/);\r",
+									"        })    \r",
 									"        pm.expect(element.status).to.be.an(\"string\");\r",
 									"        pm.expect(element.level).to.be.an(\"string\");\r",
-									"        \r",
 									"    });\r",
 									"  console.log(element);\r",
 									"});\r",
